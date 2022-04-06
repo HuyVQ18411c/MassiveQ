@@ -6,6 +6,8 @@ const app = express();
 const server = http.createServer(app);
 const PORT = 8080;
 
+app.use(express.static(__dirname + "/"));
+
 const wss = new WebSocket.Server({ server });
 wss.on("connection", (ws) => {
   ws.on("message", (data, isBinary) => {
