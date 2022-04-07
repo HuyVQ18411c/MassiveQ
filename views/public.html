@@ -1,0 +1,63 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../style.css" />
+    <title>MassiveQ - Public chat</title>
+  </head>
+  <body>
+    <div class="header">
+      <h1>MassiveQ</h1>
+    </div>
+    <div class="container">
+      <div id="message_section"></div>
+      <div class="footer">
+        <div id="input_section">
+          <input
+            type="text"
+            id="input_message"
+            placeholder="Type your message"
+          />
+          <button id="btn_send">Send</button>
+        </div>
+        <div>
+          Disclaimer: Messages will not be saved. Fresh window will show up
+          whenever you refresh.
+        </div>
+      </div>
+    </div>
+
+    <script src="../scripts/date.js"></script>
+    <script src="../scripts/socket.js"></script>
+    <script>
+      const header_section = document.querySelector(".header");
+      const input_section = document.querySelector("#input_section");
+      const message_section = document.querySelector("#message_section");
+
+      const btn_send = document.querySelector("#btn_send");
+      const input_message = document.querySelector("#input_message");
+
+      document.addEventListener("DOMContentLoaded", () => {
+        input_message.focus();
+      });
+
+      document.addEventListener("keydown", (event) => {
+        if (event.which === 13 && input_message === document.activeElement) {
+          sendMessage(input_message.value);
+          input_message.value = "";
+        }
+      });
+
+      btn_send.addEventListener("click", () => {
+        sendMessage(input_message.value);
+        input_message.value = "";
+      });
+
+      window.addEventListener("unload", () => {
+        sendMessage(clientName, "internal");
+        socket.close();
+      });
+    </script>
+  </body>
+</html>
