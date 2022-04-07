@@ -1,0 +1,98 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: aliceblue;
+    overflow-x: hidden;
+}
+
+.header,
+.footer {
+    text-align: center;
+}
+
+.header {}
+
+.header h1 {
+    padding: 0;
+    margin: 0;
+}
+
+.container {
+    width: 95%;
+    margin: 0 auto;
+    max-height: 95vh;
+}
+
+#input_section {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 5px;
+}
+
+#message_section {
+    display: flex;
+    flex-direction: column;
+    min-height: 80vh;
+    border: 1px solid #ddd;
+    font-size: 1.1em;
+    overflow-y: scroll;
+    background-color: #FFF;
+}
+
+#message_section div {
+    margin: 10px 0px;
+}
+
+#input_message {
+    font-size: 1.1em;
+    flex-grow: 1;
+    border: 1px solid #Ddd;
+}
+
+#input_message:focus {
+    outline: none;
+}
+
+#btn_send {
+    width: 20%;
+    border: none;
+    background-color: rgb(112, 202, 253);
+    color: white;
+    padding: 8px 16px;
+    text-align: center;
+    border-radius: 3px;
+}
+
+#btn_send:hover {
+    box-sizing: border-box;
+    /* border: 0.5px solid rgb(79, 176, 233); */
+}
+
+.message {
+    padding: 10px 20px;
+    width: fit-content;
+    border-radius: 10px;
+    background-color: beige;
+}
+
+.notification {
+    color: rgb(175, 175, 175);
+    font-style: italic;
+    font-size: 0.8em;
+}
+
+.self-message {
+    place-self: self-end;
+    text-align: center;
+    padding: 10px 20px;
+    width: fit-content;
+    border-radius: 10px;
+    background-color: aliceblue;
+}
+
+.avatar {
+    max-width: 30px;
+    max-height: 30px;
+    border-radius: 50%;
+}
